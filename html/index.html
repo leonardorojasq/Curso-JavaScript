@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Drum Kit</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(56, 56, 56);
+            width: 100vw;
+            height: 100vh;
+            gap:  20px;
+        }
+        .key {
+            width: 80px;
+            height: 80px;
+            border: 4px solid black;
+            background-color: rgba(22, 22, 22, 0.233) ;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            color: aliceblue;
+            font-size: 24px;
+            transition: all 0.07s ease;
+        }
+        .playing {
+            transform: scale(1.1);
+            background-color: rgb(56, 56, 56);
+            border: 6px solid yellow;
+            border-color: yellow;
+            color: yellow;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div data-key="65" class="key">A</div>
+    <div data-key="66" class="key">B</div>
+    <div data-key="67" class="key">C</div>
+    <div data-key="68" class="key">D</div>
+    <div data-key="69" class="key">E</div>
+    <div data-key="70" class="key">F</div>
+
+    <audio data-key="65" src="sound/clap.mp3"></audio>
+    <audio data-key="66" src="sound/clap.mp3"></audio>
+    <audio data-key="67" src="sound/clap.mp3"></audio>
+    <audio data-key="68" src="sound/clap.mp3"></audio>
+    <audio data-key="69" src="sound/clap.mp3"></audio>
+    <audio data-key="70" src="sound/clap.mp3"></audio>
+    <script>
+        window.addEventListener('keydown', function(e) {
+            const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+            const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+
+            if (!audio || !key) return;
+
+            audio.currentTime = 0;
+            audio.play();
+
+            key.classList.add('playing');
+
+            key.addEventListener('transitionend', function() {
+                key.classList.remove('playing');
+            }, { once: true });
+        });
+    </script>
+</body>
+</html>
