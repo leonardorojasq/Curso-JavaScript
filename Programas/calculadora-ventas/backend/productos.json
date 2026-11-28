@@ -1,0 +1,26 @@
+[
+    {
+        "id":1,
+        "descripcion": "Teclado",
+        "cantidad": 10,
+        "precioCompra": 10000,
+        "margenGanancia": 30,
+        "iva": 19
+    },
+    {
+        "id":2,
+        "descripcion": "Computador Toshiba",
+        "cantidad": 7,
+        "precioCompra": 1350000,
+        "margenGanancia": 20,
+        "iva": 19
+    },
+    {
+        "id":3,
+        "descripcion": "Computador Acer",
+        "cantidad": 1,
+        "precioCompra": 1800000,
+        "margenGanancia": 30,
+        "iva": 5
+    }
+]

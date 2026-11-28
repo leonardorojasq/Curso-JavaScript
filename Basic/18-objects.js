@@ -90,3 +90,11 @@ console.log(person.name === person4.name)
 for (let key in person4){
     console.log(key + ": " + person4[key] )
 }
+
+function Person(name,age){
+    this.name = name
+    this.age = age
+}
+
+let person5 = new Person("LEon",54)
+console.log(person5)
